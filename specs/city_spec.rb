@@ -67,6 +67,7 @@ class TestCity < Minitest::Test
     "long" => +8.683333,
     "country_id" => @country3.id
     })
+
   end
 
   def test_get_name
@@ -81,6 +82,5 @@ class TestCity < Minitest::Test
     assert_equal(-5.99, @city2.long())
   end
 
-  
 #END OF CLASS
 end
