@@ -9,7 +9,7 @@ class Destination
 
   def initialize(  options  )
     @id = options['id'].to_i if options['id']
-    @isvisited = options['isvisited']
+    options['isvisited'] == 't' ? @isvisited  = true : @isvisited = false
     @city_id = options['city_id'].to_i
   end
 
