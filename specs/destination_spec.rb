@@ -83,13 +83,12 @@ class TestDestination < Minitest::Test
   end
 
   def test_isvisited__true
-    assert_equal("t", @destination1.isvisited())
+    assert(@destination1.isvisited())
   end
 
   def test_isvisited__false
-    assert_equal("f", @destination2.isvisited())
+    refute(@destination2.isvisited())
   end
-
 
 
 
