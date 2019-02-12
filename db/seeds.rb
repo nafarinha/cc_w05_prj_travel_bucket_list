@@ -83,14 +83,17 @@ city7.save()
 city8.save()
 
   destination1 = Destination.new({
-    "isvisited" => "t",
+    "is_visited" => true,
     "city_id" => city1.id
     })
 
   destination2 = Destination.new({
-    "isvisited" => "f",
+    "is_visited" => false,
     "city_id" => city2.id
     })
 
   destination1.save()
   destination2.save()
+
+  binding.pry
+  nil

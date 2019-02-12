@@ -5,11 +5,11 @@ require_relative '../db/sqlrunner'
 class Destination
 
   attr_reader :id
-  attr_accessor :isvisited, :city_id
+  attr_accessor :is_visited, :city_id
 
   def initialize(  options  )
     @id = options['id'].to_i if options['id']
-    options['isvisited'] == 't' ? @isvisited  = true : @isvisited = false
+    options['is_visited'].to_s == 'true' ? @is_visited  = true : @is_visited = false
     @city_id = options['city_id'].to_i
   end
 
@@ -17,7 +17,7 @@ class Destination
     def save()
       sql = "INSERT INTO destinations
       (
-        isvisited,
+        is_visited,
         city_id
       )
       VALUES
@@ -25,17 +25,17 @@ class Destination
         $1, $2
       )
       RETURNING id"
-      values = [@isvisited, @city_id]
+      values = [@is_visited, @city_id]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
     end
 
     def update()
       sql = "UPDATE destinations
-        SET isvisited = $1,
+        SET is_visited = $1,
         city_id = $2
         WHERE id = $3"
-      values = [@isvisited, @city_id, @id]
+      values = [@is_visited, @city_id, @id]
       SqlRunner.run(sql, values)
     end
 

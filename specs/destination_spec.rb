@@ -71,22 +71,22 @@ class TestDestination < Minitest::Test
       })
 
     @destination1 = Destination.new({
-      "isvisited" => "t",
+      "is_visited" => true,
       "city_id" => @city1.id
       })
 
     @destination2 = Destination.new({
-      "isvisited" => "f",
+      "is_visited" => false,
       "city_id" => @city2.id
       })
   end
 
-  def test_isvisited__true
-    assert(@destination1.isvisited())
+  def test_is_visited__true
+    assert(@destination1.is_visited())
   end
 
-  def test_isvisited__false
-    refute(@destination2.isvisited())
+  def test_is_visited__false
+    refute(@destination2.is_visited())
   end
 
 
