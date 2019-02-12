@@ -1,5 +1,6 @@
 require 'pry-byebug'
 require_relative '../db/sqlrunner'
+require_relative 'country'
 
 class City
 
@@ -71,6 +72,15 @@ class City
     end
   #END CRUD functions
 
+  def country
+    sql = "SELECT co.* FROM countries co
+    INNER JOIN cities ci
+      ON ci.country_id = co.id
+    WHERE ci.id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return Country.new(  results.first  )
+  end
 
 #END OF CLASS
 end
