@@ -8,7 +8,6 @@ require_relative '../models/destination'
 class TestDestination < Minitest::Test
 
   def setup
-#UPDATE BEFORE COMMIT
     @country1 = Country.new({
       "name" => "Spain",
       "continent" => "Europe"
