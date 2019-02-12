@@ -66,6 +66,16 @@ class Destination
     end
   #END CRUD functions
 
+  def city
+    sql = "SELECT ci.* FROM cities ci
+    INNER JOIN destinations d
+      ON d.city_id = ci.id
+    WHERE d.id = $1"
+    values = [@id]
+    results = SqlRunner.run(  sql, values  )
+    return City.new(  results.first  )
+
+  end
 
 #END OF CLASS
 end
