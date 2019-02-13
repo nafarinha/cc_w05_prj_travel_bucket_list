@@ -29,3 +29,13 @@ get '/countries/:id' do
   @country = Country.find(params['id'].to_i)
   erb(  :"countries/show"  )
 end
+
+get '/countries/:id/edit' do
+  @country = Country.find( params[:id] )
+  erb( :"countries/edit" )
+end
+
+post '/countries/:id' do
+  Country.new( params ).update
+  redirect to '/countries'
+end
