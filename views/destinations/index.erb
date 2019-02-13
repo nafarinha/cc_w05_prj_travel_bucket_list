@@ -1,0 +1,15 @@
+<h1>Destinations</h1>
+
+<table>
+  <tr>
+    <th>Visited?</th>
+    <th>Destination</th>
+  </tr>
+  <% for destination in @destinations  %>
+  <tr>
+    <td><%= destination.is_visited %></td>
+    <td><a href="/destinations/<%= destination.id %>"><%= destination.city.name %></a></td>
+
+  </tr>
+    <% end %>
+</table>
