@@ -21,6 +21,12 @@ post '/cities' do
   redirect to("/cities")
 end
 
+post '/cities/:id/delete' do
+  City.delete(params[:id])
+  redirect to("/cities")
+end
+
+
 get '/cities/:id' do
   @city = City.find(params['id'].to_i)
   erb( :"cities/show" )
