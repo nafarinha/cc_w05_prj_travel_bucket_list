@@ -9,6 +9,17 @@ get '/countries' do
   erb ( :"countries/index" )
 end
 
+get '/countries/new' do
+  @countries = Country.all()
+  erb(  :"countries/new"  )
+end
+
+post '/countries' do
+  country = Country.new(params)
+  country.save()
+  redirect to("/countries")
+end
+
 get '/countries/:id' do
   @country = Country.find(params['id'].to_i)
   erb(  :"countries/show"  )
