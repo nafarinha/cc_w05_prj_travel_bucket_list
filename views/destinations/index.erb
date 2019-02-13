@@ -1,16 +1,30 @@
 <h1>Destinations</h1>
 
 <p>
-  <button type="button"><a href="/destinations/new">Create new destination</a></button>
-  <button type="button"><a href="#">Edit destinations</a></button>
-</p>
+  <button type="button"><a href="/destinations/new">Add new destination</a></button>
+
 <table>
   <tr>
+    <th></th>
+    <th></th>
     <th>Visited?</th>
     <th>Destination</th>
   </tr>
   <% for destination in @destinations  %>
   <tr>
+    <td>
+      <form action="/destinations/<%= destination.id %>/edit" method="GET">
+        <input type="image" id="image" alt="Edit" src="/images/edit.png" />
+      </form>
+    </td>
+    <td>
+      <form action="/destinations/<%= destination.id %>/delete" method="POST">
+        <input type="image" id="image" alt="Delete" src="/images/delete.png" />
+      </form>
+    </td>
+
+
+
     <% if destination.is_visited == true %>
     <td>
       <input type="image" id="image" alt="Visited" src="/images/visited.png">
