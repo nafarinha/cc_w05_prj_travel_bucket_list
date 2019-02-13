@@ -1,12 +1,28 @@
 <h1>Cities</h1>
 
+<p>
+  <button type="button"><a href="/cities/new">Add a new city </a></button>
+</p>
+
 <table>
   <tr>
+    <th></th>
+    <th></th>
     <th>Cities</th>
     <th>Countries</th>
   </tr>
   <% for city in @cities %>
   <tr>
+    <td>
+      <form action="/cities/<%= city.id %>/edit" method="GET">
+        <input type="image" id="image" alt="Edit" src="/images/edit.png" />
+      </form>
+    </td>
+    <td>
+      <form action="/cities/<%= city.id %>/delete" method="POST">
+        <input type="image" id="image" alt="Delete" src="/images/delete.png" />
+      </form>
+    </td>
     <td><a href="/cities/<%= city.id %>"><%= city.name %></a></td>
     <td><a href="/countries/<%= city.country.id %>"><%= city.country.name %></a></td>
   </tr>
