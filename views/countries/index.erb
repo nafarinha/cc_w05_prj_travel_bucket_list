@@ -11,23 +11,16 @@
   </tr>
   <% for country in @countries %>
   <tr>
-    <!-- <td><a href="#">
-      <img src="/images/edit.png" alt="Edit" width="24" height="24">
-    </a></td> -->
-
-     <td>
+    <td>
       <form action="/countries/<%= country.id %>/edit" method="GET">
         <input type="image" id="image" alt="Edit" src="/images/edit.png" />
       </form>
     </td>
-
     <td>
       <form action="/countries/<%= country.id %>/delete" method="POST">
         <input type="image" id="image" alt="Delete" src="/images/delete.png" />
       </form>
     </td>
-
-
     <td><a href="/countries/<%= country.id %>"><%= country.name %></a></td>
   </tr>
   <% end %>
