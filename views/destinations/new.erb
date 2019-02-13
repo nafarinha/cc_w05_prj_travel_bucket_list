@@ -1,0 +1,19 @@
+<form class="" action="/destinations" method="post">
+  <label for="city-name">Choose city:</label>
+  <select name="city_id" id="city-selection">
+    <% @cities.each do |city| %>
+      <option value="<%= city.id %>"><%= city.name %></option>
+    <% end %>
+  </select>
+
+  <label for="is_visited">Visited?</label>
+  <select name="is_visited" id="visit-status-selection">
+    <option value="true">Yes</option>
+    <option value="false">Not yet</option>
+
+  </select>
+
+
+
+  <input type="submit" value="Add new destination">
+</form>
