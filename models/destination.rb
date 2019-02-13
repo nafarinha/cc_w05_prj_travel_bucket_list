@@ -1,6 +1,7 @@
 require 'pry-byebug'
 require 'pg'
 require_relative '../db/sqlrunner'
+require_relative 'city'
 
 class Destination
 
@@ -9,7 +10,7 @@ class Destination
 
   def initialize(  options  )
     @id = options['id'].to_i if options['id']
-    options['is_visited'].to_s == 'true' ? @is_visited  = true : @is_visited = false
+    options['is_visited'].to_s == 't' || options['is_visited'].to_s == 'true' ? @is_visited  = true : @is_visited = false
     @city_id = options['city_id'].to_i
   end
 
