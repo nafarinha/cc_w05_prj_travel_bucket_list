@@ -20,6 +20,11 @@ post '/countries' do
   redirect to("/countries")
 end
 
+post '/countries/:id/delete' do
+  Country.delete(params[:id])
+  redirect to("/countries")
+end
+
 get '/countries/:id' do
   @country = Country.find(params['id'].to_i)
   erb(  :"countries/show"  )
