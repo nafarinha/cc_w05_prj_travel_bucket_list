@@ -78,7 +78,7 @@ class City
       ON ci.country_id = co.id
     WHERE ci.id = $1"
     values = [@id]
-    results = SqlRunner.run(sql, values)
+    results = SqlRunner.run(  sql, values  )
     return Country.new(  results.first  )
   end
 
