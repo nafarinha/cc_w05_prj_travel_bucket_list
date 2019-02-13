@@ -67,7 +67,7 @@ city7 = City.new({
   "country_id" => country3.id
   })
 city8 = City.new({
-  "name" => "Nice",
+  "name" => "Frankfurt",
   "lat" => +50.116667,
   "long" => +8.683333,
   "country_id" => country3.id
@@ -91,9 +91,45 @@ city8.save()
     "is_visited" => false,
     "city_id" => city2.id
     })
+  destination3 = Destination.new({
+    "is_visited" => true,
+    "city_id" => city3.id
+    })
+
+  destination4 = Destination.new({
+    "is_visited" => true,
+    "city_id" => city4.id
+    })
+  destination5 = Destination.new({
+    "is_visited" => true,
+    "city_id" => city5.id
+    })
+
+  destination6 = Destination.new({
+    "is_visited" => false,
+    "city_id" => city6.id
+    })
+  destination7 = Destination.new({
+    "is_visited" => false,
+    "city_id" => city7.id
+    })
+
+  destination8 = Destination.new({
+    "is_visited" => "f",
+    "city_id" => city8.id
+    })
 
   destination1.save()
   destination2.save()
+  # destination3.save()
+  # destination4.save()
+  # destination5.save()
+  # destination6.save()
+  # destination7.save()
+  # destination8.save()
+
+  cities = [city1, city2, city3, city4, city5, city6]
+
 
   binding.pry
   nil
