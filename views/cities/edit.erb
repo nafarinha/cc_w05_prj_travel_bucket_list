@@ -1,0 +1,20 @@
+<form action="/cities/<%= @city.id %>" method="post">
+  <label for="city-name-field">City Name:</label>
+  <input type="text" name="name" value="<%= @city.name %>">
+
+  <label for="city-lat-field">Latitude:</label>
+  <input type="text" name="lat" value="<%= @city.lat %>">
+
+  <label for="city-long-field">Longitude:</label>
+  <input type="text" name="long" value="<%= @city.long %>">
+
+  <label for="country-selection">Country:</label>
+  <select name="country_id" id="country-selection" >
+    <% @countries.each do |country| %>
+        <option value="<%= country.id %>"><%= country.name %></option>
+    <% end %>
+  </select>
+
+
+  <input type="submit" value="Edit city">
+</form>
