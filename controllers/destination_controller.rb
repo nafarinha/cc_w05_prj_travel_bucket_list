@@ -20,3 +20,8 @@ post '/destinations' do
   destination.save()
   redirect to("/destinations")
 end
+
+post '/destinations/:id/delete' do
+  Destination.delete(params[:id])
+  redirect to("/destinations")
+end
