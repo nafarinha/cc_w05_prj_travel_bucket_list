@@ -64,6 +64,13 @@ class Country
   end
 #END CRUD functions
 
+  def cities
+    sql = "SELECT * FROM cities
+    WHERE country_id = $1"
+    values = [@id]
+    results = SqlRunner.run(  sql, values  )
+    return results.map { |city| City.new(city)  }
+  end
 
 #END OF CLASS
 end
