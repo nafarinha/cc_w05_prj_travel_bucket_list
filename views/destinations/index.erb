@@ -8,7 +8,7 @@
   <% for destination in @destinations  %>
   <tr>
     <td><%= destination.is_visited %></td>
-    <td><a href="/destinations/<%= destination.id %>"><%= destination.city.name %></a>, <a href="#"><%= destination.city.country.name %></a></td>
+    <td><a href="/cities/<%= destination.city.id %>"><%= destination.city.name %></a>, <a href="/countries/<%= destination.city.country.id %>"><%= destination.city.country.name %></a></td>
 
   </tr>
     <% end %>
