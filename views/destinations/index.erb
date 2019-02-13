@@ -1,5 +1,13 @@
 <h1>Destinations</h1>
 
+<p>
+<!-- add button -->
+</p>
+
+<p>
+<!-- edit button -->
+</p>
+
 <table>
   <tr>
     <th>Visited?</th>
@@ -7,7 +15,15 @@
   </tr>
   <% for destination in @destinations  %>
   <tr>
-    <td><%= destination.is_visited %></td>
+    <% if destination.is_visited == true %>
+    <td>
+      <input type="image" id="image" alt="Visited" src="/images/visited.png">
+    </td>
+    <% else %>
+    <td>
+      <input type="image" id="image" alt="Not visited" src="/images/not_visited.png">
+    </td>
+    <% end %>
     <td><a href="/cities/<%= destination.city.id %>"><%= destination.city.name %></a>, <a href="/countries/<%= destination.city.country.id %>"><%= destination.city.country.name %></a></td>
 
   </tr>
