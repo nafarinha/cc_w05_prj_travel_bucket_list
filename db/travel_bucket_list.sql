@@ -29,5 +29,4 @@ CREATE TABLE destinations
   id SERIAL8 PRIMARY KEY,
   is_visited BOOLEAN,
   city_id INT8 REFERENCES cities(id)
-
 );
