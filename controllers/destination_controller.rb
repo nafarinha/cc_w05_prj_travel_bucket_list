@@ -25,3 +25,14 @@ post '/destinations/:id/delete' do
   Destination.delete(params[:id])
   redirect to("/destinations")
 end
+
+get '/destinations/:id/edit' do
+  @destination = Destination.find( params[:id] )
+  @cities = City.all()
+  erb( :"destinations/edit" )
+end
+
+post '/destinations/:id' do
+  Destination.new( params ).update
+  redirect to '/destinations'
+end
